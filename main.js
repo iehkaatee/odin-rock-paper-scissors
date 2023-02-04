@@ -6,19 +6,30 @@ computerPoint = 0;
 var playGame = true;
 var playerPlay = '';
 
-while (this.playGame) {
-    playerPlay = prompt('What do you play?');
+console.log('Welcome player!');
 
-    if (String(playerPlay).toLowerCase() === 'stop') {
-        this.playGame = false;
-        alert('Good game, well played.');
-    } else {
-        var computerPlay = getComputerChoice();
-        console.log('Computer plays: ', computerPlay);
-        console.log(playRound(playerPlay, computerPlay))
-        console.log(`total score is player: ${playerPoint} computer: ${computerPoint}`)
+var playerStart = prompt('Type \'yes\' to start.');
+
+if (String(this.playerStart).toLowerCase() === 'yes') {
+    setTimeout(10000, this.startGame());
+}
+
+function startGame() {
+    while (this.playGame) {
+        playerPlay = prompt('What do you play?');
+    
+        if (String(playerPlay).toLowerCase() === 'stop') {
+            this.playGame = false;
+            alert(`Good game, well played.\n Final score is player: ${playerPoint} computer: ${computerPoint}`);
+        } else {
+            var computerPlay = getComputerChoice();
+            console.log('Computer plays: ', computerPlay);
+            console.log(playRound(playerPlay, computerPlay))
+            console.log(`total score is player: ${playerPoint} computer: ${computerPoint}`)
+        }
     }
 }
+
 
 function getComputerChoice() {
     return options[Math.floor(Math.random() * options.length)];
